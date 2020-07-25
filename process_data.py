@@ -1,10 +1,10 @@
 from typing import List
 
 class Match:
-    def __init__(self, winner: str, loser: str, week: int):
-        self.winner = winner
-        self.loser = loser
+    def __init__(self, teams: List[str], week: int, winner: str = None):
+        self.teams = teams
         self.week = week
+        self.winner = winner
     
 class LEC:
     def __init__(self, matches: List[Match]):
@@ -12,14 +12,14 @@ class LEC:
 
     def create_standings(self):
         self.create_table()
-        wins = self.teams_by_wins()
+        team_wins = self.teams_by_wins()
 
         self.standings = {}
         next_place = 1
-        for wins, teams in wins.items():
+        for wins, teams in sorted(team_wins.items(), reverse=True):
             place = next_place
             for team in teams:
-                # list comprehension
+                # TODO: list comprehension
                 if not self.standings.get(place):
                     self.standings[place] = []
                 self.standings[place].append(team)
@@ -33,17 +33,18 @@ class LEC:
     def create_table(self):
         self.table = {}
         for match in self.matches:
-            self.table[match.winner] = { 
-                'wins': self.cumulate_matches(match.winner, 'wins'),
-            }
-            self.table[match.loser] = { 
-                'losses': self.cumulate_matches(match.loser, 'losses'),
-            }
+            if match.winner == None:
+                continue
+            if not self.table.get(match.teams[0]):
+                self.table[match.teams[0]] = { 'wins': 0 }
+            if not self.table.get(match.teams[1]):
+                self.table[match.teams[1]] = { 'wins': 0 }
+            self.table[match.winner]['wins'] = self.cumulate_matches(match.winner)
 
-    def cumulate_matches(self, current_team, win_or_loss):
-        try: 
-            return self.table[current_team][win_or_loss] + 1
-        except:
+    def cumulate_matches(self, current_team):
+        if self.table.get(current_team, {}).get('wins'):
+            return self.table[current_team]['wins'] + 1
+        else:
             return 1
 
     def teams_by_wins(self):

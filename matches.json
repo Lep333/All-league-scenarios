@@ -1,0 +1,722 @@
+[
+    {
+        "teams": [
+            "MAD",
+            "G2"
+        ],
+        "week": 1,
+        "winner": "G2"
+    },
+    {
+        "teams": [
+            "VIT",
+            "S04"
+        ],
+        "week": 1,
+        "winner": "VIT"
+    },
+    {
+        "teams": [
+            "OG",
+            "SK"
+        ],
+        "week": 1,
+        "winner": "SK"
+    },
+    {
+        "teams": [
+            "RGE",
+            "XL"
+        ],
+        "week": 1,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "MSF",
+            "FNC"
+        ],
+        "week": 1,
+        "winner": "FNC"
+    },
+    {
+        "teams": [
+            "S04",
+            "SK"
+        ],
+        "week": 1,
+        "winner": "SK"
+    },
+    {
+        "teams": [
+            "RGE",
+            "MSF"
+        ],
+        "week": 1,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "XL",
+            "MAD"
+        ],
+        "week": 1,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "FNC",
+            "VIT"
+        ],
+        "week": 1,
+        "winner": "FNC"
+    },
+    {
+        "teams": [
+            "G2",
+            "OG"
+        ],
+        "week": 1,
+        "winner": "OG"
+    },
+    {
+        "teams": [
+            "SK",
+            "MAD"
+        ],
+        "week": 1,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "S04",
+            "RGE"
+        ],
+        "week": 1,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "OG",
+            "MSF"
+        ],
+        "week": 1,
+        "winner": "MSF"
+    },
+    {
+        "teams": [
+            "G2",
+            "VIT"
+        ],
+        "week": 1,
+        "winner": "VIT"
+    },
+    {
+        "teams": [
+            "FNC",
+            "XL"
+        ],
+        "week": 1,
+        "winner": "FNC"
+    },
+    {
+        "teams": [
+            "VIT",
+            "RGE"
+        ],
+        "week": 2,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "MSF",
+            "SK"
+        ],
+        "week": 2,
+        "winner": "SK"
+    },
+    {
+        "teams": [
+            "G2",
+            "S04"
+        ],
+        "week": 2,
+        "winner": "G2"
+    },
+    {
+        "teams": [
+            "OG",
+            "XL"
+        ],
+        "week": 2,
+        "winner": "OG"
+    },
+    {
+        "teams": [
+            "FNC",
+            "MAD"
+        ],
+        "week": 2,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "SK",
+            "XL"
+        ],
+        "week": 2,
+        "winner": "XL"
+    },
+    {
+        "teams": [
+            "MSF",
+            "S04"
+        ],
+        "week": 2,
+        "winner": "MSF"
+    },
+    {
+        "teams": [
+            "VIT",
+            "MAD"
+        ],
+        "week": 2,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "G2",
+            "RGE"
+        ],
+        "week": 2,
+        "winner": "G2"
+    },
+    {
+        "teams": [
+            "FNC",
+            "OG"
+        ],
+        "week": 2,
+        "winner": "OG"
+    },
+    {
+        "teams": [
+            "S04",
+            "XL"
+        ],
+        "week": 3,
+        "winner": "XL"
+    },
+    {
+        "teams": [
+            "VIT",
+            "MSF"
+        ],
+        "week": 3,
+        "winner": "MSF"
+    },
+    {
+        "teams": [
+            "G2",
+            "SK"
+        ],
+        "week": 3,
+        "winner": "SK"
+    },
+    {
+        "teams": [
+            "MAD",
+            "OG"
+        ],
+        "week": 3,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "FNC",
+            "RGE"
+        ],
+        "week": 3,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "VIT",
+            "SK"
+        ],
+        "week": 3,
+        "winner": "VIT"
+    },
+    {
+        "teams": [
+            "MSF",
+            "XL"
+        ],
+        "week": 3,
+        "winner": "MSF"
+    },
+    {
+        "teams": [
+            "OG",
+            "S04"
+        ],
+        "week": 3,
+        "winner": "OG"
+    },
+    {
+        "teams": [
+            "MAD",
+            "RGE"
+        ],
+        "week": 3,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "G2",
+            "FNC"
+        ],
+        "week": 3,
+        "winner": "G2"
+    },
+    {
+        "teams": [
+            "VIT",
+            "XL"
+        ],
+        "week": 4,
+        "winner": "XL"
+    },
+    {
+        "teams": [
+            "MAD",
+            "S04"
+        ],
+        "week": 4,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "FNC",
+            "SK"
+        ],
+        "week": 4,
+        "winner": "FNC"
+    },
+    {
+        "teams": [
+            "RGE",
+            "OG"
+        ],
+        "week": 4,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "MSF",
+            "G2"
+        ],
+        "week": 4,
+        "winner": "G2"
+    },
+    {
+        "teams": [
+            "RGE",
+            "SK"
+        ],
+        "week": 4,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "VIT",
+            "OG"
+        ],
+        "week": 4,
+        "winner": "VIT"
+    },
+    {
+        "teams": [
+            "FNC",
+            "S04"
+        ],
+        "week": 4,
+        "winner": "S04"
+    },
+    {
+        "teams": [
+            "G2",
+            "XL"
+        ],
+        "week": 4,
+        "winner": "XL"
+    },
+    {
+        "teams": [
+            "MSF",
+            "MAD"
+        ],
+        "week": 4,
+        "winner": "MSF"
+    },
+    {
+        "teams": [
+            "VIT",
+            "SK"
+        ],
+        "week": 5,
+        "winner": "SK"
+    },
+    {
+        "teams": [
+            "RGE",
+            "S04"
+        ],
+        "week": 5,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "MSF",
+            "FNC"
+        ],
+        "week": 5,
+        "winner": "FNC"
+    },
+    {
+        "teams": [
+            "MAD",
+            "XL"
+        ],
+        "week": 5,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "G2",
+            "OG"
+        ],
+        "week": 5,
+        "winner": "OG"
+    },
+    {
+        "teams": [
+            "SK",
+            "S04"
+        ],
+        "week": 5,
+        "winner": "SK"
+    },
+    {
+        "teams": [
+            "RGE",
+            "XL"
+        ],
+        "week": 5,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "MSF",
+            "OG"
+        ],
+        "week": 5,
+        "winner": "OG"
+    },
+    {
+        "teams": [
+            "VIT",
+            "FNC"
+        ],
+        "week": 5,
+        "winner": "FNC"
+    },
+    {
+        "teams": [
+            "G2",
+            "MAD"
+        ],
+        "week": 5,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "SK",
+            "XL"
+        ],
+        "week": 6,
+        "winner": "XL"
+    },
+    {
+        "teams": [
+            "VIT",
+            "OG"
+        ],
+        "week": 6,
+        "winner": "VIT"
+    },
+    {
+        "teams": [
+            "G2",
+            "S04"
+        ],
+        "week": 6,
+        "winner": "S04"
+    },
+    {
+        "teams": [
+            "MSF",
+            "RGE"
+        ],
+        "week": 6,
+        "winner": "RGE"
+    },
+    {
+        "teams": [
+            "FNC",
+            "MAD"
+        ],
+        "week": 6,
+        "winner": "MAD"
+    },
+    {
+        "teams": [
+            "VIT",
+            "XL"
+        ],
+        "week": 6,
+        "winner": "XL"
+    },
+    {
+        "teams": [
+            "MSF",
+            "S04"
+        ],
+        "week": 6,
+        "winner": "S04"
+    },
+    {
+        "teams": [
+            "MAD",
+            "SK"
+        ],
+        "week": 6,
+        "winner": "SK"
+    },
+    {
+        "teams": [
+            "FNC",
+            "OG"
+        ],
+        "week": 6,
+        "winner": "FNC"
+    },
+    {
+        "teams": [
+            "G2",
+            "RGE"
+        ],
+        "week": 6,
+        "winner": "G2"
+    },
+    {
+        "teams": [
+            "MSF",
+            "SK"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "S04",
+            "XL"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "MAD",
+            "OG"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "VIT",
+            "G2"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "FNC",
+            "RGE"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "RGE",
+            "SK"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "MSF",
+            "XL"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "VIT",
+            "MAD"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "OG",
+            "S04"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "G2",
+            "FNC"
+        ],
+        "week": 7,
+        "winner": null
+    },
+    {
+        "teams": [
+            "VIT",
+            "S04"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "OG",
+            "SK"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "FNC",
+            "XL"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "MAD",
+            "RGE"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "MSF",
+            "G2"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "VIT",
+            "RGE"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "MSF",
+            "MAD"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "OG",
+            "XL"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "G2",
+            "SK"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "FNC",
+            "S04"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "VIT",
+            "MSF"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "MAD",
+            "S04"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "RGE",
+            "OG"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "FNC",
+            "SK"
+        ],
+        "week": 8,
+        "winner": null
+    },
+    {
+        "teams": [
+            "G2",
+            "XL"
+        ],
+        "week": 8,
+        "winner": null
+    }
+]
