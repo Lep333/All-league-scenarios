@@ -1,4 +1,6 @@
+import json
 from typing import List
+# from src.get_data import GamepediaScraper
 
 class Match:
     def __init__(self, teams: List[str], week: int, result: List[int] = None):
@@ -20,11 +22,30 @@ class Team:
         self.name = name
         self.matches = matches
 
-class LEC:
-    def __init__(self, matches: List[Match]):
-        self.matches = matches
+    def get_wins(self) -> int:
+        wins = 0
+        for match in self.matches:
+            if not match.result:
+                continue
+            index = match.teams.index(self.name)
+            if match.result[index] == 1:
+                wins += 1
+
+        return wins
+
+class League:
+    output_file_name = 'src/matches.json'
+
+    def __init__(self, teams: dict, gamepedia_tournament_url: str):
+        self.teams = teams
+        #self.tiebreaker = tiebreaker
+        self.gamepedia_tournament_url = gamepedia_tournament_url
         self.table = {}
-        self.teams = []
+    
+    def runner(self):
+        # scraper = GamepediaScraper(self.gamepedia_tournament_url, self.output_file_name)
+        # scraper.runner()
+        self.create_standings()
 
     def create_standings(self):
         self.create_table()
@@ -46,24 +67,35 @@ class LEC:
         # -> tiebraker game(s)
 
     def create_table(self):
-        for match in self.matches:
-            if not match.result:
-                continue
-            if not self.table.get(match.teams[0]):
-                self.table[match.teams[0]] = { 'wins': 0 }
-            if not self.table.get(match.teams[1]):
-                self.table[match.teams[1]] = { 'wins': 0 }
-            self.table[match.get_winner()]['wins'] += 1
-
+        for team in self.teams.values():
+            self.table[team.name] = team.get_wins()
+            
     def teams_by_wins(self) -> dict:
         wins = {}
         for team, record in self.table.items():
-            if not record.get('wins'):
-                record['wins'] = 0
-            if not wins.get(record['wins']):
-                wins[record['wins']] = []
-            wins[record['wins']].append(team)
+            if not wins.get(record):
+                wins[record] = []
+            wins[record].append(team)
 
         return wins
 
-    # TODO: factory pattern from json
+    @classmethod
+    def from_json(cls, gamepedia_tournament_url):
+        with open(cls.output_file_name, 'r') as f:
+            matches = json.load(f)
+
+        return cls.from_matches(matches, gamepedia_tournament_url)
+
+
+    @classmethod
+    def from_matches(cls, matches: List[Match], gamepedia_tournament_url: str):
+        teams = {}
+        for match in matches:
+            match_obj = Match(match['teams'], match['week'], match['result'])
+            for team in match['teams']:
+                if not teams.get(team):
+                    teams[team] = Team(team, [match_obj])
+                else:
+                    teams[team].matches.append(match_obj)
+        
+        return cls(teams, gamepedia_tournament_url)

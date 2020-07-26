@@ -3,14 +3,14 @@ import json
 import os
 import requests
 from bs4 import BeautifulSoup
-from process_data import Match
+import src.process_data as process_data
 
 class GamepediaScraper:
     default_beautifulsoup_parser= 'html.parser'
-    lec_gamepedia_url = 'https://lol.gamepedia.com/LEC/2020_Season/Summer_Season'
-    output_file_name = 'matches.json'
 
-    def __init__(self):
+    def __init__(self, lec_gamepedia_url: str, output_file_name: str):
+        self.lec_gamepedia_url = lec_gamepedia_url
+        self.output_file_name = output_file_name
         self.matches = []
 
     def runner(self):
@@ -33,12 +33,9 @@ class GamepediaScraper:
                 teams = [team.get_text() for team in teams_html]
                 result_html = match.find_all('td', class_='matchlist-score')
                 result = [int(result.get_text()) for result in result_html]
-                self.matches.append(Match(teams, int(week), result))
+                self.matches.append(process_data.Match(teams, int(week), result))
     
     def _save_matches(self):
         matches = [match.__dict__ for match in self.matches]
         with open(self.output_file_name, 'w') as f:
             json.dump(matches, f, indent=4, sort_keys=True)
-
-scraper = GamepediaScraper()
-scraper._get_matches()

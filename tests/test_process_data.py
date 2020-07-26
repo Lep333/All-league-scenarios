@@ -1,33 +1,25 @@
 import unittest
 import json
-from src.process_data import LEC, Match
-from test_data import matches_one_day, matches_two_days
+from src.process_data import League, Match
+from tests.test_data import matches_one_day, matches_two_days
 
-class Test_LEC(unittest.TestCase):
-    def setUp(self):
-        match_list = []
-        for match in matches_one_day:
-            match_list.append(Match(match[0], match[1], match[2]))
-        self.lec = LEC(match_list)
-
+class Test_League(unittest.TestCase):
     def test_create_standings_one_day(self):
-        self.lec.create_standings()
-        self.assertIn('XL', self.lec.standings[1])
-        self.assertIn('VIT', self.lec.standings[1])
-        self.assertIn('S04', self.lec.standings[1])
-        self.assertIn('RGE', self.lec.standings[1])
-        self.assertIn('MAD', self.lec.standings[1])
-        self.assertIn('SK', self.lec.standings[6])
-        self.assertIn('OG', self.lec.standings[6])
-        self.assertIn('G2', self.lec.standings[6])
-        self.assertIn('MSF', self.lec.standings[6])
-        self.assertIn('FNC', self.lec.standings[6])
+        lec = League.from_matches(matches_one_day, '')
+        lec.create_standings()
+        self.assertIn('XL', lec.standings[1])
+        self.assertIn('VIT', lec.standings[1])
+        self.assertIn('S04', lec.standings[1])
+        self.assertIn('RGE', lec.standings[1])
+        self.assertIn('MAD', lec.standings[1])
+        self.assertIn('SK', lec.standings[6])
+        self.assertIn('OG', lec.standings[6])
+        self.assertIn('G2', lec.standings[6])
+        self.assertIn('MSF', lec.standings[6])
+        self.assertIn('FNC', lec.standings[6])
 
     def test_create_standings_two_days(self):
-        match_list = []
-        for match in matches_two_days:
-            match_list.append(Match(match[0], match[1], match[2]))
-        lec = LEC(match_list)
+        lec = League.from_matches(matches_two_days, '')
         lec.create_standings()
         self.assertIn('XL', lec.standings[3])
         self.assertIn('VIT', lec.standings[3])
@@ -41,13 +33,7 @@ class Test_LEC(unittest.TestCase):
         self.assertIn('FNC', lec.standings[3])
 
     def test_create_standings_season(self):
-        with open('src/matches.json', 'r') as f:
-            matches = json.load(f)
-
-        match_list = []
-        for match in matches:
-            match_list.append(Match(match['teams'], match['week'], match['result']))
-        lec = LEC(match_list)
+        lec = League.from_json('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season')
         lec.create_standings()
         self.assertIn('XL', lec.standings[5])
         self.assertIn('VIT', lec.standings[8])
@@ -61,42 +47,37 @@ class Test_LEC(unittest.TestCase):
         self.assertIn('FNC', lec.standings[3])
 
     def test_create_table_one_day(self):
-        self.lec.create_table()
-        self.assertEqual(self.lec.table['XL']['wins'], 1)
-        self.assertEqual(self.lec.table['VIT']['wins'], 1)
-        self.assertEqual(self.lec.table['S04']['wins'], 1)
-        self.assertEqual(self.lec.table['RGE']['wins'], 1)
-        self.assertEqual(self.lec.table['MAD']['wins'], 1)
+        lec = League.from_matches(matches_one_day, '')
+        lec.create_table()
+        self.assertEqual(lec.table['XL'], 1)
+        self.assertEqual(lec.table['VIT'], 1)
+        self.assertEqual(lec.table['S04'], 1)
+        self.assertEqual(lec.table['RGE'], 1)
+        self.assertEqual(lec.table['MAD'], 1)
 
     def test_create_table_two_days(self):
-        match_list = []
-        for match in matches_two_days:
-            match_list.append(Match(match[0], match[1], match[2]))
-        lec = LEC(match_list)
+        lec = League.from_matches(matches_two_days, '')
         lec.create_table()
-        self.assertEqual(lec.table['RGE']['wins'], 2)
-        self.assertEqual(lec.table['MAD']['wins'], 2)
-        self.assertEqual(lec.table['XL']['wins'], 1)
-        self.assertEqual(lec.table['VIT']['wins'], 1)
-        self.assertEqual(lec.table['S04']['wins'], 1)
-        self.assertEqual(lec.table['OG']['wins'], 1)
-        self.assertEqual(lec.table['FNC']['wins'], 1)
-        self.assertEqual(lec.table['SK']['wins'], 1)
+        self.assertEqual(lec.table['RGE'], 2)
+        self.assertEqual(lec.table['MAD'], 2)
+        self.assertEqual(lec.table['XL'], 1)
+        self.assertEqual(lec.table['VIT'], 1)
+        self.assertEqual(lec.table['S04'], 1)
+        self.assertEqual(lec.table['OG'], 1)
+        self.assertEqual(lec.table['FNC'], 1)
+        self.assertEqual(lec.table['SK'], 1)
 
     def test_create_table_season(self):
-        with open('src/matches.json', 'r') as f:
-            matches = json.load(f)
-
-        match_list = []
-        for match in matches:
-            match_list.append(Match(match['teams'], match['week'], match['result']))
-        lec = LEC(match_list)
+        lec = League.from_json('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season')
         lec.create_table()
-        self.assertEqual(lec.table['RGE']['wins'], 10)
-        self.assertEqual(lec.table['MAD']['wins'], 10)
-        self.assertEqual(lec.table['XL']['wins'], 6)
-        self.assertEqual(lec.table['VIT']['wins'], 5)
-        self.assertEqual(lec.table['S04']['wins'], 3)
-        self.assertEqual(lec.table['OG']['wins'], 6)
-        self.assertEqual(lec.table['FNC']['wins'], 7)
-        self.assertEqual(lec.table['SK']['wins'], 7)
+        self.assertEqual(lec.table['RGE'], 10)
+        self.assertEqual(lec.table['MAD'], 10)
+        self.assertEqual(lec.table['XL'], 6)
+        self.assertEqual(lec.table['VIT'], 5)
+        self.assertEqual(lec.table['S04'], 3)
+        self.assertEqual(lec.table['OG'], 6)
+        self.assertEqual(lec.table['FNC'], 7)
+        self.assertEqual(lec.table['SK'], 7)
+
+    def test_from_json(self):
+        lec = League.from_json('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season')
