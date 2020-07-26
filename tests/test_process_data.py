@@ -1,6 +1,6 @@
 import unittest
 import json
-from process_data import LEC, Match
+from src.process_data import LEC, Match
 from test_data import matches_one_day, matches_two_days
 
 class Test_LEC(unittest.TestCase):
@@ -41,12 +41,12 @@ class Test_LEC(unittest.TestCase):
         self.assertIn('FNC', lec.standings[3])
 
     def test_create_standings_season(self):
-        with open('matches.json', 'r') as f:
+        with open('src/matches.json', 'r') as f:
             matches = json.load(f)
 
         match_list = []
         for match in matches:
-            match_list.append(Match(match['teams'], match['week'], match['winner']))
+            match_list.append(Match(match['teams'], match['week'], match['result']))
         lec = LEC(match_list)
         lec.create_standings()
         self.assertIn('XL', lec.standings[5])
@@ -84,12 +84,12 @@ class Test_LEC(unittest.TestCase):
         self.assertEqual(lec.table['SK']['wins'], 1)
 
     def test_create_table_season(self):
-        with open('matches.json', 'r') as f:
+        with open('src/matches.json', 'r') as f:
             matches = json.load(f)
 
         match_list = []
         for match in matches:
-            match_list.append(Match(match['teams'], match['week'], match['winner']))
+            match_list.append(Match(match['teams'], match['week'], match['result']))
         lec = LEC(match_list)
         lec.create_table()
         self.assertEqual(lec.table['RGE']['wins'], 10)

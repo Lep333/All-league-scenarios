@@ -1,14 +1,30 @@
 from typing import List
 
 class Match:
-    def __init__(self, teams: List[str], week: int, winner: str = None):
+    def __init__(self, teams: List[str], week: int, result: List[int] = None):
         self.teams = teams
         self.week = week
-        self.winner = winner
+        self.result = result
+
+    def get_winner(self):
+        if not self.result:
+            return
+        if self.result[0]:
+            return self.teams[0]
+        else:
+            return self.teams[1]
     
+# TODO: create Team class
+class Team:
+    def __init__(self, name: str, matches: List[Match] = None):
+        self.name = name
+        self.matches = matches
+
 class LEC:
     def __init__(self, matches: List[Match]):
         self.matches = matches
+        self.table = {}
+        self.teams = []
 
     def create_standings(self):
         self.create_table()
@@ -19,7 +35,6 @@ class LEC:
         for wins, teams in sorted(team_wins.items(), reverse=True):
             place = next_place
             for team in teams:
-                # TODO: list comprehension
                 if not self.standings.get(place):
                     self.standings[place] = []
                 self.standings[place].append(team)
@@ -31,23 +46,16 @@ class LEC:
         # -> tiebraker game(s)
 
     def create_table(self):
-        self.table = {}
         for match in self.matches:
-            if match.winner == None:
+            if not match.result:
                 continue
             if not self.table.get(match.teams[0]):
                 self.table[match.teams[0]] = { 'wins': 0 }
             if not self.table.get(match.teams[1]):
                 self.table[match.teams[1]] = { 'wins': 0 }
-            self.table[match.winner]['wins'] = self.cumulate_matches(match.winner)
+            self.table[match.get_winner()]['wins'] += 1
 
-    def cumulate_matches(self, current_team):
-        if self.table.get(current_team, {}).get('wins'):
-            return self.table[current_team]['wins'] + 1
-        else:
-            return 1
-
-    def teams_by_wins(self):
+    def teams_by_wins(self) -> dict:
         wins = {}
         for team, record in self.table.items():
             if not record.get('wins'):
@@ -57,3 +65,5 @@ class LEC:
             wins[record['wins']].append(team)
 
         return wins
+
+    # TODO: factory pattern from json

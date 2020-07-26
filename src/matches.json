@@ -1,722 +1,917 @@
 [
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MAD",
             "G2"
         ],
-        "week": 1,
-        "winner": "G2"
+        "week": 1
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "VIT",
             "S04"
         ],
-        "week": 1,
-        "winner": "VIT"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "OG",
             "SK"
         ],
-        "week": 1,
-        "winner": "SK"
+        "week": 1
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "RGE",
             "XL"
         ],
-        "week": 1,
-        "winner": "RGE"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MSF",
             "FNC"
         ],
-        "week": 1,
-        "winner": "FNC"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "S04",
             "SK"
         ],
-        "week": 1,
-        "winner": "SK"
+        "week": 1
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "RGE",
             "MSF"
         ],
-        "week": 1,
-        "winner": "RGE"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "XL",
             "MAD"
         ],
-        "week": 1,
-        "winner": "MAD"
+        "week": 1
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "FNC",
             "VIT"
         ],
-        "week": 1,
-        "winner": "FNC"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "G2",
             "OG"
         ],
-        "week": 1,
-        "winner": "OG"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "SK",
             "MAD"
         ],
-        "week": 1,
-        "winner": "MAD"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "S04",
             "RGE"
         ],
-        "week": 1,
-        "winner": "RGE"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "OG",
             "MSF"
         ],
-        "week": 1,
-        "winner": "MSF"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "G2",
             "VIT"
         ],
-        "week": 1,
-        "winner": "VIT"
+        "week": 1
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "FNC",
             "XL"
         ],
-        "week": 1,
-        "winner": "FNC"
+        "week": 1
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "VIT",
             "RGE"
         ],
-        "week": 2,
-        "winner": "RGE"
+        "week": 2
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MSF",
             "SK"
         ],
-        "week": 2,
-        "winner": "SK"
+        "week": 2
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "G2",
             "S04"
         ],
-        "week": 2,
-        "winner": "G2"
+        "week": 2
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "OG",
             "XL"
         ],
-        "week": 2,
-        "winner": "OG"
+        "week": 2
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "FNC",
             "MAD"
         ],
-        "week": 2,
-        "winner": "MAD"
+        "week": 2
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "SK",
             "XL"
         ],
-        "week": 2,
-        "winner": "XL"
+        "week": 2
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "MSF",
             "S04"
         ],
-        "week": 2,
-        "winner": "MSF"
+        "week": 2
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "VIT",
             "MAD"
         ],
-        "week": 2,
-        "winner": "MAD"
+        "week": 2
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "G2",
             "RGE"
         ],
-        "week": 2,
-        "winner": "G2"
+        "week": 2
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "FNC",
             "OG"
         ],
-        "week": 2,
-        "winner": "OG"
+        "week": 2
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "S04",
             "XL"
         ],
-        "week": 3,
-        "winner": "XL"
+        "week": 3
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "VIT",
             "MSF"
         ],
-        "week": 3,
-        "winner": "MSF"
+        "week": 3
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "G2",
             "SK"
         ],
-        "week": 3,
-        "winner": "SK"
+        "week": 3
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "MAD",
             "OG"
         ],
-        "week": 3,
-        "winner": "MAD"
+        "week": 3
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "FNC",
             "RGE"
         ],
-        "week": 3,
-        "winner": "RGE"
+        "week": 3
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "VIT",
             "SK"
         ],
-        "week": 3,
-        "winner": "VIT"
+        "week": 3
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "MSF",
             "XL"
         ],
-        "week": 3,
-        "winner": "MSF"
+        "week": 3
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "OG",
             "S04"
         ],
-        "week": 3,
-        "winner": "OG"
+        "week": 3
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "MAD",
             "RGE"
         ],
-        "week": 3,
-        "winner": "MAD"
+        "week": 3
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "G2",
             "FNC"
         ],
-        "week": 3,
-        "winner": "G2"
+        "week": 3
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "VIT",
             "XL"
         ],
-        "week": 4,
-        "winner": "XL"
+        "week": 4
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "MAD",
             "S04"
         ],
-        "week": 4,
-        "winner": "MAD"
+        "week": 4
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "FNC",
             "SK"
         ],
-        "week": 4,
-        "winner": "FNC"
+        "week": 4
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "RGE",
             "OG"
         ],
-        "week": 4,
-        "winner": "RGE"
+        "week": 4
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MSF",
             "G2"
         ],
-        "week": 4,
-        "winner": "G2"
+        "week": 4
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "RGE",
             "SK"
         ],
-        "week": 4,
-        "winner": "RGE"
+        "week": 4
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "VIT",
             "OG"
         ],
-        "week": 4,
-        "winner": "VIT"
+        "week": 4
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "FNC",
             "S04"
         ],
-        "week": 4,
-        "winner": "S04"
+        "week": 4
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "G2",
             "XL"
         ],
-        "week": 4,
-        "winner": "XL"
+        "week": 4
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "MSF",
             "MAD"
         ],
-        "week": 4,
-        "winner": "MSF"
+        "week": 4
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "VIT",
             "SK"
         ],
-        "week": 5,
-        "winner": "SK"
+        "week": 5
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "RGE",
             "S04"
         ],
-        "week": 5,
-        "winner": "RGE"
+        "week": 5
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MSF",
             "FNC"
         ],
-        "week": 5,
-        "winner": "FNC"
+        "week": 5
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "MAD",
             "XL"
         ],
-        "week": 5,
-        "winner": "MAD"
+        "week": 5
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "G2",
             "OG"
         ],
-        "week": 5,
-        "winner": "OG"
+        "week": 5
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "SK",
             "S04"
         ],
-        "week": 5,
-        "winner": "SK"
+        "week": 5
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "RGE",
             "XL"
         ],
-        "week": 5,
-        "winner": "RGE"
+        "week": 5
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MSF",
             "OG"
         ],
-        "week": 5,
-        "winner": "OG"
+        "week": 5
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "VIT",
             "FNC"
         ],
-        "week": 5,
-        "winner": "FNC"
+        "week": 5
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "G2",
             "MAD"
         ],
-        "week": 5,
-        "winner": "MAD"
+        "week": 5
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "SK",
             "XL"
         ],
-        "week": 6,
-        "winner": "XL"
+        "week": 6
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "VIT",
             "OG"
         ],
-        "week": 6,
-        "winner": "VIT"
+        "week": 6
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "G2",
             "S04"
         ],
-        "week": 6,
-        "winner": "S04"
+        "week": 6
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MSF",
             "RGE"
         ],
-        "week": 6,
-        "winner": "RGE"
+        "week": 6
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "FNC",
             "MAD"
         ],
-        "week": 6,
-        "winner": "MAD"
+        "week": 6
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "VIT",
             "XL"
         ],
-        "week": 6,
-        "winner": "XL"
+        "week": 6
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MSF",
             "S04"
         ],
-        "week": 6,
-        "winner": "S04"
+        "week": 6
     },
     {
+        "result": [
+            0,
+            1
+        ],
         "teams": [
             "MAD",
             "SK"
         ],
-        "week": 6,
-        "winner": "SK"
+        "week": 6
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "FNC",
             "OG"
         ],
-        "week": 6,
-        "winner": "FNC"
+        "week": 6
     },
     {
+        "result": [
+            1,
+            0
+        ],
         "teams": [
             "G2",
             "RGE"
         ],
-        "week": 6,
-        "winner": "G2"
+        "week": 6
     },
     {
+        "result": [],
         "teams": [
             "MSF",
             "SK"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "S04",
             "XL"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "MAD",
             "OG"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "VIT",
             "G2"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "FNC",
             "RGE"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "RGE",
             "SK"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "MSF",
             "XL"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "VIT",
             "MAD"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "OG",
             "S04"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "G2",
             "FNC"
         ],
-        "week": 7,
-        "winner": null
+        "week": 7
     },
     {
+        "result": [],
         "teams": [
             "VIT",
             "S04"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "OG",
             "SK"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "FNC",
             "XL"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "MAD",
             "RGE"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "MSF",
             "G2"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "VIT",
             "RGE"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "MSF",
             "MAD"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "OG",
             "XL"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "G2",
             "SK"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "FNC",
             "S04"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "VIT",
             "MSF"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "MAD",
             "S04"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "RGE",
             "OG"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "FNC",
             "SK"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     },
     {
+        "result": [],
         "teams": [
             "G2",
             "XL"
         ],
-        "week": 8,
-        "winner": null
+        "week": 8
     }
 ]

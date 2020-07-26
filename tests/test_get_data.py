@@ -1,5 +1,5 @@
 import unittest
-from get_data import GamepediaScraper
+from src.get_data import GamepediaScraper
 
 class Test_Get_Data(unittest.TestCase):
     def test_runner(self):
@@ -10,4 +10,4 @@ class Test_Get_Data(unittest.TestCase):
         scraper = GamepediaScraper()
         scraper._get_matches()
         g2_mad = [match for match in scraper.matches if match.teams == ['MAD', 'G2']][0]
-        self.assertEquals(g2_mad.winner, 'G2')
+        self.assertEquals(g2_mad.get_winner(), 'G2')

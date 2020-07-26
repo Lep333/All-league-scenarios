@@ -10,6 +10,9 @@ class GamepediaScraper:
     lec_gamepedia_url = 'https://lol.gamepedia.com/LEC/2020_Season/Summer_Season'
     output_file_name = 'matches.json'
 
+    def __init__(self):
+        self.matches = []
+
     def runner(self):
         if not os.path.exists(self.output_file_name):
             self._get_matches()
@@ -19,32 +22,18 @@ class GamepediaScraper:
         response = requests.get(self.lec_gamepedia_url)
         soup = BeautifulSoup(response.content, self.default_beautifulsoup_parser)
 
-        self.matches = []
         wiki_tables = soup.find_all('table', class_='wikitable matchlist')
         for wiki_table in wiki_tables:
             week = wiki_table.find('th').get_text()
-            p = re.compile('\d')
-            week = p.findall(week)[0]
+            week_pattern = re.compile('\d')
+            week = week_pattern.findall(week)[0]
             matches_row = wiki_table.find_all('tr', class_='ml-row')
             for match in matches_row:
-                teams = match.find_all('span', class_='teamname')
-                teams = [team.get_text() for team in teams]
-                print(teams)
-                
-                results = match.find_all('td', class_='matchlist-score')
-                
-                result = [result.get_text() for result in results]
-                print(result)
-                self.matches.append(Match(teams, int(week), self._get_winner(teams, result)))
-
-    def _get_winner(self, teams, results):
-        if not results:
-            return
-        if results[0] == '1':
-            return teams[0]
-        else:
-            return teams[1]
-
+                teams_html = match.find_all('span', class_='teamname')
+                teams = [team.get_text() for team in teams_html]
+                result_html = match.find_all('td', class_='matchlist-score')
+                result = [int(result.get_text()) for result in result_html]
+                self.matches.append(Match(teams, int(week), result))
     
     def _save_matches(self):
         matches = [match.__dict__ for match in self.matches]
