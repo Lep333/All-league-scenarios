@@ -3,7 +3,7 @@ import json
 from src.process_data import League, Match
 from tests.test_data import matches_one_day, matches_two_days
 
-class Test_League(unittest.TestCase):
+class TestLeague(unittest.TestCase):
     def test_create_standings_one_day(self):
         lec = League.from_matches(matches_one_day, '')
         lec.create_standings()

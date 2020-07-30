@@ -15,8 +15,15 @@ class Match:
             return self.teams[0]
         else:
             return self.teams[1]
-    
-# TODO: create Team class
+
+    @classmethod
+    def from_json(cls, file_name: str):
+        with open(file_name, 'r') as f:
+            matches = json.load(f)
+
+        matches = [cls(match['teams'], match['week'], match['result']) for match in matches]
+        return matches
+
 class Team:
     def __init__(self, name: str, matches: List[Match] = None):
         self.name = name
@@ -41,6 +48,7 @@ class League:
         #self.tiebreaker = tiebreaker
         self.gamepedia_tournament_url = gamepedia_tournament_url
         self.table = {}
+        self.standings = {}
     
     def runner(self):
         # scraper = GamepediaScraper(self.gamepedia_tournament_url, self.output_file_name)
@@ -51,7 +59,6 @@ class League:
         self.create_table()
         team_wins = self.teams_by_wins()
 
-        self.standings = {}
         next_place = 1
         for wins, teams in sorted(team_wins.items(), reverse=True):
             place = next_place
@@ -97,5 +104,17 @@ class League:
                     teams[team] = Team(team, [match_obj])
                 else:
                     teams[team].matches.append(match_obj)
+        
+        return cls(teams, gamepedia_tournament_url)
+
+    @classmethod
+    def from_matches_2(cls, matches: List[Match], gamepedia_tournament_url: str):
+        teams = {}
+        for match in matches:
+            for team in match.teams:
+                if not teams.get(team):
+                    teams[team] = Team(team, [match])
+                else:
+                    teams[team].matches.append(match)
         
         return cls(teams, gamepedia_tournament_url)
