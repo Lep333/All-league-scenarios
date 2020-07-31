@@ -18,3 +18,21 @@ matches_two_days = [
     {'teams': ['RGE', 'MSF'], 'week': 6, 'result': [1, 0]},
     {'teams': ['MAD', 'FNC'], 'week': 6, 'result': [1, 0]}
 ]
+
+head_to_head = [
+    {'teams': ['G2', 'FNC'], 'week': 4, 'result': [1, 0]},
+    {'teams': ['OG', 'G2'], 'week': 4, 'result': [1, 0]},
+    {'teams': ['OG', 'FNC'], 'week': 4, 'result': [0, 1]},
+    {'teams': ['G2', 'FNC'], 'week': 5, 'result': [1, 0]},
+    {'teams': ['OG', 'G2'], 'week': 5, 'result': [1, 0]},
+    {'teams': ['OG', 'FNC'], 'week': 5, 'result': [0, 1]},
+]
+
+wins_in_second_half = [
+    {'teams': ['G2', 'FNC'], 'week': 4, 'result': [1, 0]},
+    {'teams': ['OG', 'G2'], 'week': 4, 'result': [0, 1]},
+    {'teams': ['OG', 'FNC'], 'week': 4, 'result': [1, 0]},
+    {'teams': ['G2', 'FNC'], 'week': 5, 'result': [0, 1]},
+    {'teams': ['OG', 'G2'], 'week': 5, 'result': [1, 0]},
+    {'teams': ['OG', 'FNC'], 'week': 5, 'result': [0, 1]},
+]

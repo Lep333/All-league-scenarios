@@ -1,7 +1,7 @@
 import unittest
 import json
 from src.process_data import League, Match
-from tests.test_data import matches_one_day, matches_two_days
+from tests.test_data import matches_one_day, matches_two_days, head_to_head, wins_in_second_half
 
 class TestLeague(unittest.TestCase):
     def test_create_standings_one_day(self):
@@ -23,11 +23,11 @@ class TestLeague(unittest.TestCase):
         lec.create_standings()
         self.assertIn('XL', lec.standings[3])
         self.assertIn('VIT', lec.standings[3])
-        self.assertIn('S04', lec.standings[3])
+        self.assertIn('S04', lec.standings[7])
         self.assertIn('RGE', lec.standings[1])
         self.assertIn('MAD', lec.standings[1])
         self.assertIn('SK', lec.standings[3])
-        self.assertIn('OG', lec.standings[3])
+        self.assertIn('OG', lec.standings[7])
         self.assertIn('G2', lec.standings[9])
         self.assertIn('MSF', lec.standings[9])
         self.assertIn('FNC', lec.standings[3])
@@ -35,14 +35,14 @@ class TestLeague(unittest.TestCase):
     def test_create_standings_season(self):
         lec = League.from_json('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season')
         lec.create_standings()
-        self.assertIn('XL', lec.standings[5])
-        self.assertIn('VIT', lec.standings[8])
+        self.assertIn('XL', lec.standings[6])
+        self.assertIn('VIT', lec.standings[9])
         self.assertIn('S04', lec.standings[10])
-        self.assertIn('RGE', lec.standings[1])
+        self.assertIn('RGE', lec.standings[2])
         self.assertIn('MAD', lec.standings[1])
-        self.assertIn('SK', lec.standings[3])
+        self.assertIn('SK', lec.standings[4])
         self.assertIn('OG', lec.standings[5])
-        self.assertIn('G2', lec.standings[5])
+        self.assertIn('G2', lec.standings[7])
         self.assertIn('MSF', lec.standings[8])
         self.assertIn('FNC', lec.standings[3])
 
@@ -78,6 +78,20 @@ class TestLeague(unittest.TestCase):
         self.assertEqual(lec.table['OG'], 6)
         self.assertEqual(lec.table['FNC'], 7)
         self.assertEqual(lec.table['SK'], 7)
+
+    def test_head_to_head(self):
+        lec = League.from_matches(head_to_head, '')
+        lec.create_standings()
+        self.assertIn('OG', lec.standings[1])
+        self.assertIn('G2', lec.standings[1])
+        self.assertIn('FNC', lec.standings[1])
+
+    def test_wins_in_second_half(self):
+        lec = League.from_matches(wins_in_second_half, '')
+        lec.create_standings()
+        self.assertIn('FNC', lec.standings[1])
+        self.assertIn('OG', lec.standings[2])
+        self.assertIn('G2', lec.standings[3])
 
     def test_from_json(self):
         lec = League.from_json('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season')
