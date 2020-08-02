@@ -1,6 +1,7 @@
 import itertools
 from multiprocessing import Pool, Manager, Queue
 from functools import partial
+import json
 import copy
 import time
 from typing import List
@@ -10,11 +11,12 @@ class PossibilityHandler:
     template_file = 'src/output_template.txt'
     output_file = 'src/output.md'
     
-    def __init__(self):
+    def __init__(self, League):
         matches = Match.from_json('src/matches.json')
         self.finished_matches = []
         self.upcomming_matches = []
         self.cumulated_outcomes = {}
+        self.League = League
         for match in matches:
             if match.result:
                 self.finished_matches.append(match)
@@ -24,7 +26,6 @@ class PossibilityHandler:
     def run(self):
         start_time = time.time()
 
-        possibilities = itertools.product([0, 1], repeat=len(self.upcomming_matches))
         self.multiprocess_possibilities()
 
         finish_time = time.time()
@@ -33,6 +34,7 @@ class PossibilityHandler:
         self.create_output(time_delta)
 
     def multiprocess_possibilities(self):
+        possibilities = itertools.product([0, 1], repeat=len(self.upcomming_matches))
         with Manager() as manager:
             q = manager.Queue()
             p = Pool()
@@ -46,9 +48,15 @@ class PossibilityHandler:
     def get_possibilities(self, q, possibility):
         prediction = copy.deepcopy(self.upcomming_matches)
         self.get_outcome(prediction, possibility)
-        lec = League.from_matches_2(self.finished_matches + prediction, '')
-        lec.create_standings()
-        self.cumulate_outcome(q, lec.standings)
+        league = self.League.from_matches(self.finished_matches + prediction)
+        league.create_standings()
+        self.cumulate_outcome(q, league.standings)
+
+        # if lec.standings.get(10):
+        #     if 'G2' in lec.standings[10]:
+        #         dict_matches = [match.__dict__ for match in prediction]
+        #         with open('src/g8_10.json', 'a') as f:
+        #             json.dump(dict_matches, f)
 
     def get_outcome(self, upcomming_matches: List[Match], possibility):
         for i, match in enumerate(upcomming_matches):
@@ -98,7 +106,7 @@ class PossibilityHandler:
             for i in range(1, 11):  
                 if not standings.get(i):
                     standings[i] = 0
-                if i <= 6:
+                if i <= self.League.playoff_teams:
                     playoff_probab += standings[i]
                 relative_row = f'{relative_row} | {round(standings[i] / total * 100, 2)}'
                 absolute_row = f'{absolute_row} | {standings[i]:,}'
@@ -111,6 +119,7 @@ class PossibilityHandler:
             output_template = template.read()
         
         output = output_template.format(
+            explanation=self.League.explanation,
             relative_rows=relative_rows,
             absolute_rows=absolute_rows,
             process_time=round(process_time, 0)
