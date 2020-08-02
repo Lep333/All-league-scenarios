@@ -72,8 +72,6 @@ class Team:
         return wins
 
 class League:
-    output_file_name = 'src/matches.json'
-
     def __init__(self, teams: dict, gamepedia_tournament_url: str):
         self.teams = teams
         #self.tiebreaker = tiebreaker
@@ -82,8 +80,6 @@ class League:
         self.standings = {}
     
     def runner(self):
-        # scraper = GamepediaScraper(self.gamepedia_tournament_url, self.output_file_name)
-        # scraper.runner()
         self.create_standings()
 
     def create_standings(self):
