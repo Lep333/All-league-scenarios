@@ -2,7 +2,6 @@ import json
 import copy
 from abc import ABC, abstractmethod
 from typing import List
-# from src.get_data import GamepediaScraper
 
 class Match:
     def __init__(self, teams: List[str], week: int, result: List[int] = None):
@@ -222,7 +221,7 @@ class LCS(League):
         for standing, teams in standings.items():
             team_wins = []
             tied_teams = len(teams)
-            if tied_teams in [2, 3]:
+            if tied_teams in [3]:
                 for i, team in enumerate(teams):
                     teams_copy = copy.copy(teams)
                     teams_copy.pop(i)
@@ -246,10 +245,13 @@ class LCS(League):
             for team in teams:
                 if not output.get(place):
                     output[place] = []
+                if tied_teams == 3 and wins == 4:
+                    output[place].append(team)
+                    next_place += 1
+                elif tied_teams == 3 and next_place >0:
+                    output[place].append(team)
+                elif tied_teams == 3:
+                    break
                 if tied_teams == 2:
                     output[place].append(team)
                     next_place += 1
-                if tied_teams == 3:
-                    output[place].append(team)
-                    if next_place != 1:
-                        next_place += 1
