@@ -3,7 +3,7 @@ import json
 import os
 import requests
 from bs4 import BeautifulSoup
-import process_data as process_data
+from process_data.match import Match
 
 class GamepediaScraper:
     default_beautifulsoup_parser= 'html.parser'
@@ -33,7 +33,7 @@ class GamepediaScraper:
                 teams = [team.get_text() for team in teams_html]
                 result_html = match.find_all('td', class_='matchlist-score')
                 result = [int(result.get_text()) for result in result_html]
-                self.matches.append(process_data.Match(teams, int(week), result))
+                self.matches.append(Match(teams, int(week), result))
     
     def _save_matches(self):
         matches = [match.__dict__ for match in self.matches]

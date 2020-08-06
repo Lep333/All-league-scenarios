@@ -1,81 +1,15 @@
-import json
 import copy
 from abc import ABC, abstractmethod
-from typing import List
-
-class Match:
-    def __init__(self, teams: List[str], week: int, result: List[int] = None):
-        self.teams = teams
-        self.week = week
-        self.result = result
-
-    def get_winner(self):
-        if not self.result:
-            return
-        if self.result[0]:
-            return self.teams[0]
-        else:
-            return self.teams[1]
-
-    @classmethod
-    def from_json(cls, file_name: str):
-        with open(file_name, 'r') as f:
-            matches = json.load(f)
-
-        matches = [cls(match['teams'], match['week'], match['result']) for match in matches]
-        return matches
-
-class Team:
-    def __init__(self, name: str, matches: List[Match] = None):
-        self.name = name
-        self.matches = matches
-
-    def get_wins(self) -> int:
-        wins = 0
-        for match in self.matches:
-            if not match.result:
-                continue
-            index = match.teams.index(self.name)
-            if len(match.result) > index:
-                if match.result[index] == 1:
-                    wins += 1
-
-        return wins
-    
-    def get_head_to_head_wins(self, other_teams):
-        wins = 0
-        for other_team in other_teams:
-            matchups = [
-                        match for match in self.matches
-                        if self.name in match.teams and other_team in match.teams
-                    ]
-
-            for match in matchups:
-                index = match.teams.index(self.name)
-                if len(match.result) > index:
-                    if match.result[index] == 1:
-                        wins += 1
-        
-        return wins
-
-    def get_wins_in_second_half(self):
-        second_half_matches = [
-            match for match in self.matches
-            if match.week > 4
-        ]
-        wins = 0
-        for match in second_half_matches:
-            index = match.teams.index(self.name)
-            if match.result[index] == 1:
-                wins += 1
-        
-        return wins
-
+from typing import List, Dict
+from process_data.match import Match
+from process_data.team import Team
 
 class League(ABC):
-    def __init__(self, teams: dict):
+    matches_file = 'src/files/matches.json'
+    output_file = 'src/files/output.md'
+
+    def __init__(self, teams: Dict):
         self.teams = teams
-        #self.tiebreaker = tiebreaker
         self.table = {}
         self.standings = {}
 
@@ -86,7 +20,7 @@ class League(ABC):
 
         self.tiebraker()
 
-    def place_teams(self, team_wins, output, next_place=1):
+    def place_teams(self, team_wins: Dict, output: Dict, next_place:int=1):
         next_place = next_place
         for wins, teams in sorted(team_wins.items(), reverse=True):
             place = next_place
@@ -100,7 +34,7 @@ class League(ABC):
         for team in self.teams.values():
             self.table[team.name] = team.get_wins()
             
-    def teams_by_wins(self, team_wins) -> dict:
+    def teams_by_wins(self, team_wins: Dict) -> Dict:
         wins = {}
         for team, record in team_wins:
             if not wins.get(record):
@@ -108,17 +42,17 @@ class League(ABC):
             wins[record].append(team)
 
         return wins
-    
+
     @abstractmethod
     def tiebraker(self):
         raise NotImplementedError
 
-    def set_standing_for_team(self, team, standing):
+    def set_standing_for_team(self, team: str, standing: int):
         if not self.standings.get(standing):
             self.standings[standing] = []
         self.standings[standing].append(team)
 
-    def reset_standing_for_team(self, team_to_reset):
+    def reset_standing_for_team(self, team_to_reset: str):
         for standing, teams in self.standings.items():
             if team_to_reset in teams:
                 index = self.standings[standing].index(team_to_reset)
@@ -140,6 +74,8 @@ class League(ABC):
         return cls(teams)
 
 class LEC(League):
+    matches_file = 'src/files/lec_matches.json'
+    output_file = 'src/files/lec_output.md'
     playoff_teams = 6
     gamepedia_url = 'https://lol.gamepedia.com/LEC/2020_Season/Summer_Season'
     explanation = '''# All LEC Playoff scenarios:
@@ -199,6 +135,8 @@ class LEC(League):
                         self.set_standing_for_team(team, standing + placing)
 
 class LCS(League):
+    matches_file = 'src/files/lcs_matches.json'
+    output_file = 'src/files/lcs_output.md'
     playoff_teams = 8
     gamepedia_url = 'https://lol.gamepedia.com/LCS/2020_Season/Summer_Season'
     explanation = '''# All LCS Playoff scenarios:
@@ -238,7 +176,7 @@ class LCS(League):
                         self.reset_standing_for_team(team)
                         self.set_standing_for_team(team, standing + placing)
     
-    def place_teams_lcs(self, team_wins, output, tied_teams, next_place=1):
+    def place_teams_lcs(self, team_wins: Dict, output: Dict, tied_teams: int, next_place: int = 1):
         next_place = next_place
         for wins, teams in sorted(team_wins.items(), reverse=True):
             place = next_place
@@ -248,7 +186,7 @@ class LCS(League):
                 if tied_teams == 3 and wins == 4:
                     output[place].append(team)
                     next_place += 1
-                elif tied_teams == 3 and next_place >0:
+                elif tied_teams == 3 and next_place > 0:
                     output[place].append(team)
                 elif tied_teams == 3:
                     break

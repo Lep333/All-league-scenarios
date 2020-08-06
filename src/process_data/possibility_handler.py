@@ -3,15 +3,16 @@ from multiprocessing import Pool, Manager, Queue
 from functools import partial
 import copy
 import time
-from typing import List
-from process_data import Match, League
+from typing import List, Dict
+from process_data.league import League
+from process_data.match import Match
+from process_data.team import Team
 
 class PossibilityHandler:
-    template_file = 'src/output_template.txt'
-    output_file = 'src/output.md'
+    template_file = 'src/files/output_template.txt'
     
-    def __init__(self, League):
-        matches = Match.from_json('src/matches.json')
+    def __init__(self, League: League):
+        matches = Match.from_json(League.matches_file)
         self.finished_matches = []
         self.upcomming_matches = []
         self.cumulated_outcomes = {}
@@ -44,7 +45,7 @@ class PossibilityHandler:
             p.close()
             p.join()
         
-    def get_possibilities(self, q, possibility):
+    def get_possibilities(self, q: Queue, possibility: List):
         prediction = copy.deepcopy(self.upcomming_matches)
         self.get_outcome(prediction, possibility)
         league = self.League.from_matches(self.finished_matches + prediction)
@@ -57,14 +58,14 @@ class PossibilityHandler:
         #         with open('src/g8_10.json', 'a') as f:
         #             json.dump(dict_matches, f)
 
-    def get_outcome(self, upcomming_matches: List[Match], possibility):
+    def get_outcome(self, upcomming_matches: List[Match], possibility: List):
         for i, match in enumerate(upcomming_matches):
             if possibility[i] == 1:
                 upcomming_matches[i].result = [1, 0]
             elif possibility[i] == 0:
                 upcomming_matches[i].result = [0, 1]
 
-    def cumulate_outcome(self, q, standings):
+    def cumulate_outcome(self, q: Queue, standings: Dict):
         cumulated_results = {}
         for standing, teams in standings.items():
             for team in teams:
@@ -76,7 +77,7 @@ class PossibilityHandler:
                     cumulated_results[team][standing] += 1
         q.put(cumulated_results)
     
-    def cumulate_results(self, q):
+    def cumulate_results(self, q: Queue):
         # give producer some time to start
         time.sleep(3)
         while True:
@@ -91,7 +92,7 @@ class PossibilityHandler:
                         self.cumulated_outcomes[team][standing] = 0
                     self.cumulated_outcomes[team][standing] += 1
 
-    def create_output(self, process_time):
+    def create_output(self, process_time: float):
         relative_rows = ''
         absolute_rows = ''
         for team, standings in sorted(self.cumulated_outcomes.items(),
@@ -124,7 +125,7 @@ class PossibilityHandler:
             process_time=round(process_time, 0)
         )
 
-        with open(self.output_file, 'a') as f:
+        with open(self.League.output_file, 'a') as f:
             f.write(output)
 
     @staticmethod
