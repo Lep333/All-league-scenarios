@@ -3,7 +3,7 @@ import json
 import os
 import requests
 from bs4 import BeautifulSoup
-from process_data.match import Match
+from src.app.process_data.match import Match
 
 class GamepediaScraper:
     default_beautifulsoup_parser= 'html.parser'

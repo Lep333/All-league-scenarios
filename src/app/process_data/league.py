@@ -1,12 +1,12 @@
 import copy
 from abc import ABC, abstractmethod
 from typing import List, Dict
-from process_data.match import Match
-from process_data.team import Team
+from src.app.process_data.match import Match
+from src.app.process_data.team import Team
 
 class League(ABC):
-    matches_file = 'src/files/matches.json'
-    output_file = 'src/files/output.md'
+    matches_file = 'src/app/files/matches.json'
+    output_file = 'src/app/files/output.md'
 
     def __init__(self, teams: Dict):
         self.teams = teams
@@ -74,16 +74,19 @@ class League(ABC):
         return cls(teams)
 
 class LEC(League):
-    matches_file = 'src/files/lec_matches.json'
-    output_file = 'src/files/lec_output.md'
+    matches_file = 'src/app/files/lec_matches.json'
+    output_file = 'src/app/files/lec_output.md'
     playoff_teams = 6
     gamepedia_url = 'https://lol.gamepedia.com/LEC/2020_Season/Summer_Season'
     explanation = '''# All LEC Playoff scenarios:
     With accounting for the following tiebreaker rules:
-    1) by tied standings the team with the favored head-to-head record gets the higher standing
-    2) If that doesnt resolve the tie, the team with more wins in the 2nd half of the split gets the higher placing.
+    1) by tied standings the team with the favored head-to-head 
+    record gets the higher standing
+    2) If that doesnt resolve the tie, the team with more wins
+    in the 2nd half of the split gets the higher placing.
 
-    If the tiebreaker is after 2) not solved tiebreaker game(s) will be played but are not represented here.
+    If the tiebreaker is after 2) not solved tiebreaker game(s)
+    will be played but are not represented here.
     Which leads to an uneven distribution of the places.
     '''
 
@@ -135,8 +138,8 @@ class LEC(League):
                         self.set_standing_for_team(team, standing + placing)
 
 class LCS(League):
-    matches_file = 'src/files/lcs_matches.json'
-    output_file = 'src/files/lcs_output.md'
+    matches_file = 'src/app/files/lcs_matches.json'
+    output_file = 'src/app/files/lcs_output.md'
     playoff_teams = 8
     gamepedia_url = 'https://lol.gamepedia.com/LCS/2020_Season/Summer_Season'
     explanation = '''# All LCS Playoff scenarios:

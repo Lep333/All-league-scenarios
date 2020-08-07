@@ -1,6 +1,6 @@
-from get_data.get_data import GamepediaScraper
-from process_data.possibility_handler import PossibilityHandler
-from process_data.league import LEC, LCS
+from src.app.get_data.get_data import GamepediaScraper
+from src.app.process_data.possibility_handler import PossibilityHandler
+from src.app.process_data.league import LEC, LCS
 
 def main():
     League = LEC #League = LCS

@@ -1,11 +1,7 @@
 import unittest
-from src.get_data import GamepediaScraper
+from src.app.get_data.get_data import GamepediaScraper
 
 class TestGetData(unittest.TestCase):
-    def test_runner(self):
-        scraper = GamepediaScraper('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season', 'src/matches.json')
-        scraper.runner()
-
     def test_scraper(self):
         scraper = GamepediaScraper('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season', 'src/matches.json')
         scraper._get_matches()

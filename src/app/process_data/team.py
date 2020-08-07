@@ -1,5 +1,5 @@
 from typing import List
-from process_data.match import Match
+from src.app.process_data.match import Match
 
 class Team:
     def __init__(self, name: str, matches: List[Match] = None):
@@ -37,7 +37,7 @@ class Team:
     def get_wins_in_second_half(self):
         second_half_matches = [
             match for match in self.matches
-            if match.week > 4 # TODO: remove hardcoded week
+            if match.week > 4 and match.result # TODO: remove hardcoded week
         ]
         wins = 0
         for match in second_half_matches:
