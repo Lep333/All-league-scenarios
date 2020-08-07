@@ -2,7 +2,7 @@ import unittest
 import json
 from src.app.process_data.league import LEC
 from src.app.process_data.match import Match
-from tests.test_data import matches_one_day, matches_two_days, head_to_head, wins_in_second_half
+from src.tests.test_data import matches_one_day, matches_two_days, head_to_head, wins_in_second_half
 
 class TestLeague(unittest.TestCase):
     def test_create_standings_one_day(self):

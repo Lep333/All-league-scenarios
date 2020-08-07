@@ -6,4 +6,4 @@ class TestGetData(unittest.TestCase):
         scraper = GamepediaScraper('https://lol.gamepedia.com/LEC/2020_Season/Summer_Season', 'src/matches.json')
         scraper._get_matches()
         g2_mad = [match for match in scraper.matches if match.teams == ['MAD', 'G2']][0]
-        self.assertEquals(g2_mad.get_winner(), 'G2')
+        self.assertEqual(g2_mad.get_winner(), 'G2')
