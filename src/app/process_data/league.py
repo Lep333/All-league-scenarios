@@ -77,8 +77,8 @@ class LEC(League):
     matches_file = 'src/app/files/lec_matches.json'
     output_file = 'src/app/files/lec_output.md'
     playoff_teams = 6
-    gamepedia_url = 'https://lol.gamepedia.com/LEC/2020_Season/Summer_Season'
-    explanation = '''# All LEC Playoff scenarios:
+    gamepedia_url = 'https://lol.gamepedia.com/LEC/2021_Season/Spring_Season'
+    explanation = '''# All LEC regular season scenarios:
     With accounting for the following tiebreaker rules:
     1) by tied standings the team with the favored head-to-head 
     record gets the higher standing
@@ -140,8 +140,8 @@ class LEC(League):
 class LCS(League):
     matches_file = 'src/app/files/lcs_matches.json'
     output_file = 'src/app/files/lcs_output.md'
-    playoff_teams = 8
-    gamepedia_url = 'https://lol.gamepedia.com/LCS/2020_Season/Summer_Season'
+    playoff_teams = 6
+    gamepedia_url = 'https://lol.gamepedia.com/LCS/2021_Season/Spring_Season'
     explanation = '''# All LCS Playoff scenarios:
     With accounting for the following tiebreaker rule:
     1) by tied standings the team with the favored 

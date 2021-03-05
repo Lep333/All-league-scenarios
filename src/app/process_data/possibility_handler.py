@@ -4,6 +4,7 @@ from functools import partial
 import copy
 import time
 from typing import List, Dict
+# import json
 from src.app.process_data.league import League
 from src.app.process_data.match import Match
 from src.app.process_data.team import Team
@@ -52,11 +53,11 @@ class PossibilityHandler:
         league.create_standings()
         self.cumulate_outcome(q, league.standings)
 
-        # good position to output possibilities for specific teams e.g.:
-        # if lec.standings.get(10):
-        #     if 'G2' in lec.standings[10]:
+        #good position to output possibilities for specific teams e.g.:
+        # if league.standings.get(10):
+        #     if 'G2' in league.standings[10]:
         #         dict_matches = [match.__dict__ for match in prediction]
-        #         with open('src/g8_10.json', 'a') as f:
+        #         with open('g8_10.json', 'a') as f:
         #             json.dump(dict_matches, f)
 
     def get_outcome(self, upcomming_matches: List[Match], possibility: List):
