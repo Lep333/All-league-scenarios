@@ -22,7 +22,7 @@ class GamepediaScraper:
         response = requests.get(self.lec_gamepedia_url)
         soup = BeautifulSoup(response.content, self.default_beautifulsoup_parser)
 
-        wiki_tables = soup.find_all('table', class_='wikitable matchlist')
+        wiki_tables = soup.find_all('table', class_='wikitable2 matchlist')
         for wiki_table in wiki_tables:
             week = wiki_table.find('th').get_text()
             week_pattern = re.compile('\d')

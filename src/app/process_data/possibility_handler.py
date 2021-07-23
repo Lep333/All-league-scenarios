@@ -34,6 +34,26 @@ class PossibilityHandler:
 
         self.create_output(time_delta)
 
+    # dont use the singleprocess methods. to slow :(
+    def singleprocess_possibilities(self):
+        possibilities = itertools.product([0, 1], repeat=len(self.upcomming_matches))
+
+        for possibility in possibilities:
+            prediction = copy.deepcopy(self.upcomming_matches)
+            self.get_outcome(prediction, possibility)
+            league = self.League.from_matches(self.finished_matches + prediction)
+            league.create_standings()
+            self.singleprocess_cumulate_results(league)
+
+    def singleprocess_cumulate_results(self, league: League):
+        for place, teams in league.standings.items():
+            for team in teams:
+                if not self.cumulated_outcomes.get(team):
+                    self.cumulated_outcomes[team] = {}
+                if not self.cumulated_outcomes[team].get(place):
+                    self.cumulated_outcomes[team][place] = 0
+                self.cumulated_outcomes[team][place] += 1
+
     def multiprocess_possibilities(self):
         possibilities = itertools.product([0, 1], repeat=len(self.upcomming_matches))
         with Manager() as manager:
@@ -53,13 +73,13 @@ class PossibilityHandler:
         league.create_standings()
         self.cumulate_outcome(q, league.standings)
 
-        #good position to output possibilities for specific teams e.g.:
-        # if league.standings.get(10):
-        #     if 'G2' in league.standings[10]:
+        # good position to output possibilities for specific teams e.g.:
+        # if league.standings.get(6):
+        #     if 'S04' in league.standings[4] or league.standings[5] or league.standings[6]:
         #         dict_matches = [match.__dict__ for match in prediction]
-        #         with open('g8_10.json', 'a') as f:
+        #         with open('s04_in.json', 'a') as f:
         #             json.dump(dict_matches, f)
-
+        
     def get_outcome(self, upcomming_matches: List[Match], possibility: List):
         for i, match in enumerate(upcomming_matches):
             if possibility[i] == 1:

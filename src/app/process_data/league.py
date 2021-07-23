@@ -60,7 +60,7 @@ class League(ABC):
                 if not self.standings[standing]:
                     del self.standings[standing]
                 break
-
+    
     @classmethod
     def from_matches(cls, matches: List[Match]):
         teams = {}
@@ -77,7 +77,7 @@ class LEC(League):
     matches_file = 'src/app/files/lec_matches.json'
     output_file = 'src/app/files/lec_output.md'
     playoff_teams = 6
-    gamepedia_url = 'https://lol.gamepedia.com/LEC/2021_Season/Spring_Season'
+    gamepedia_url = 'https://lol.fandom.com/wiki/LEC/2021_Season/Summer_Season'
     explanation = '''# All LEC regular season scenarios:
     With accounting for the following tiebreaker rules:
     1) by tied standings the team with the favored head-to-head 
@@ -96,6 +96,7 @@ class LEC(League):
         # 2) wins in second half of the split
         self.wins_in_second_half()
         # -> tiebraker game(s)
+        self.head_to_head()
 
     def head_to_head(self):
         standings = copy.deepcopy(self.standings)
