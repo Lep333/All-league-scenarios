@@ -77,8 +77,8 @@ class LEC(League):
     matches_file = 'src/app/files/lec_matches.json'
     output_file = 'src/app/files/lec_output.md'
     playoff_teams = 6
-    gamepedia_url = 'https://lol.fandom.com/wiki/LEC/2021_Season/Summer_Season'
-    explanation = '''# All LEC regular season scenarios:
+    gamepedia_url = 'https://lol.fandom.com/wiki/LEC/2022_Season/Summer_Season'
+    explanation = '''# All possible LEC regular season outcomes:
     With accounting for the following tiebreaker rules:
     1) by tied standings the team with the favored head-to-head 
     record gets the higher standing
