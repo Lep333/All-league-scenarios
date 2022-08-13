@@ -96,27 +96,36 @@ class LEC(League):
         # 2) wins in second half of the split
         self.wins_in_second_half()
         # -> tiebraker game(s)
-        self.head_to_head()
+        # self.head_to_head()
 
     def head_to_head(self):
-        standings = copy.deepcopy(self.standings)
-        for standing, teams in standings.items():
-            team_wins = []
-            if len(teams) > 1:
-                for i, team in enumerate(teams):
-                    teams_copy = copy.copy(teams)
-                    teams_copy.pop(i)
-                    team_wins.append((team, self.teams[team].get_head_to_head_wins(teams_copy)))
-                
-                team_wins = self.teams_by_wins(team_wins)
-                head_to_head_placing = {}
-                self.place_teams(team_wins, head_to_head_placing, next_place=0)
-                for placing, teams in head_to_head_placing.items():
-                    for team in teams:
-                        if placing == 0:
-                            continue
-                        self.reset_standing_for_team(team)
-                        self.set_standing_for_team(team, standing + placing)
+        
+        while True:
+            standings = copy.deepcopy(self.standings)
+            new_tiebreaker = False
+            for standing, teams in standings.items():
+                team_wins = []
+                if len(teams) > 1:
+                    for i, team in enumerate(teams):
+                        teams_copy = copy.copy(teams)
+                        teams_copy.pop(i)
+                        team_wins.append((team, self.teams[team].get_head_to_head_wins(teams_copy)))
+                    
+                    team_wins = self.teams_by_wins(team_wins)
+                    head_to_head_placing = {}
+                    self.place_teams(team_wins, head_to_head_placing, next_place=0)
+
+                    for placing, teams_tied in head_to_head_placing.items():
+                        for team in teams_tied:
+                            if len(teams) != len(teams_tied):
+                                new_tiebreaker = True
+                            if placing == 0:
+                                continue
+                            self.reset_standing_for_team(team)
+                            self.set_standing_for_team(team, standing + placing)
+
+            if new_tiebreaker == False:
+                break
 
     def wins_in_second_half(self):
         standings = copy.deepcopy(self.standings)
