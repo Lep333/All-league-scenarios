@@ -5,7 +5,6 @@ A small python programm to calculate all possible outcomes (standings of the tea
 ## Warning
 Be careful when trying to process high amount of probabilities. My system crashed around 2^23 possibilities (with 16GB RAM).
 
-Also I forgot to add a file so some unittests dont find a file and fail :3.
 ## Setup
 Clone the repository, cd in to the repository and install the requirements with:
 

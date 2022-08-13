@@ -29,29 +29,29 @@ class TestLeague(unittest.TestCase):
         lec = LEC.from_matches(test_matches)
         lec.create_standings()
         self.assertIn('XL', lec.standings[3])
-        self.assertIn('VIT', lec.standings[3])
+        self.assertIn('VIT', lec.standings[5])
         self.assertIn('S04', lec.standings[7])
         self.assertIn('RGE', lec.standings[1])
         self.assertIn('MAD', lec.standings[1])
-        self.assertIn('SK', lec.standings[3])
+        self.assertIn('SK', lec.standings[5])
         self.assertIn('OG', lec.standings[7])
         self.assertIn('G2', lec.standings[9])
         self.assertIn('MSF', lec.standings[9])
         self.assertIn('FNC', lec.standings[3])
 
     def test_create_standings_season(self):
-        matches = Match.from_json('src/tests/lec_test_matches.json')
+        matches = Match.from_json('src/tests/lec_test.json')
         lec = LEC.from_matches(matches)
         lec.create_standings()
         self.assertIn('XL', lec.standings[6])
-        self.assertIn('VIT', lec.standings[7])
+        self.assertIn('VIT', lec.standings[8])
         self.assertIn('S04', lec.standings[10])
         self.assertIn('RGE', lec.standings[2])
         self.assertIn('MAD', lec.standings[1])
         self.assertIn('SK', lec.standings[3])
         self.assertIn('OG', lec.standings[9])
         self.assertIn('G2', lec.standings[4])
-        self.assertIn('MSF', lec.standings[8])
+        self.assertIn('MSF', lec.standings[7])
         self.assertIn('FNC', lec.standings[5])
 
     def test_create_table_one_day(self):
@@ -82,7 +82,7 @@ class TestLeague(unittest.TestCase):
         self.assertEqual(lec.table['SK'], 1)
 
     def test_create_table_season(self):
-        matches = Match.from_json('src/tests/lec_test_matches.json')
+        matches = Match.from_json('src/tests/lec_test.json')
         lec = LEC.from_matches(matches)
         lec.create_table()
         self.assertEqual(lec.table['RGE'], 11)
